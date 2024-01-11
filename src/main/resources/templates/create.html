@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New user</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Raleway:700,800);
+        body {
+            background: #6ED0F6;
+            color: #fff;
+            font-family: 'Raleway', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        form {
+            width: 450px;
+            height: 370px;
+            margin: -185px -225px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            display: block;
+        }
+        input[type=text] {
+            background: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 27px;
+            font-family: 'Raleway', sans-serif;
+            height: 72px;
+            width: 99.5%;
+            margin-bottom: 10px;
+            opacity: 1;
+            text-indent: 20px;
+            transition: all .2s ease-in-out;
+            padding: 1px 2px;
+        }
+        input {
+            writing-mode: horizontal-tb !important;
+            text-rendering: auto;
+            letter-spacing: normal;
+            word-spacing: normal;
+            line-height: normal;
+            text-transform: none;
+            text-shadow: none;
+            display: inline-block;
+            text-align: start;
+            appearance: auto;
+            -webkit-rtl-ordering: logical;
+            cursor: text;
+            margin: 0;
+        }
+        button {
+            background: #079BCF;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            font-family: 'Raleway', sans-serif;
+            font-size: 27px;
+            height: 72px;
+            width: 100%;
+            margin-bottom: 10px;
+            overflow: hidden;
+            transition: all .3s cubic-bezier(.6,0,.4,1);}
+    </style>
+</head>
+<body>
+<form th:method="POST" th:action="@{/}" th:object="${user}">
+    <div id="wrapper">
+        <label for="name">Enter name: </label>
+        <input type="text" th:field="*{name}" id="name"/>
+        <br/>
+        <label for="surname">Enter surname: </label>
+        <input type="text" th:field="*{surname}" id="surname"/>
+        <br/>
+        <label for="age">Enter age: </label>
+        <input type="text" th:field="*{age}" id="age"/>
+        <br/>
+    </div>
+    <button type="submit">
+        Create user
+    </button>
+</form>
+</body>
+</html>

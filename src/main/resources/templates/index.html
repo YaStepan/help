@@ -1,0 +1,31 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>all-users</title>
+    <style>
+        @import url(http://fonts.googleapis.com/css?family=Raleway:700,800);
+        body {
+            background: #6ED0F6;
+            color: #fff;
+            font-family: 'Raleway', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            margin-left: auto;
+            margin-right: auto;
+            width: 400px
+        }
+    </style>
+</head>
+<body>
+<h1>All Users List</h1>
+<div th:each="user : ${users}">
+    <a th:href="@{/{id}(id=${user.getId()})}" th:text="${user.getName() + ', ' + user.getSurname() + ', ' + user.getAge()}">user</a>
+    <br>
+</div>
+
+<br/>
+<br>
+
+<a th:href="@{/create}">Create user</a>
+</body>
+</html>
