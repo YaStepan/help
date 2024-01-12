@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import ru.springboot.pp312.entity.User;
 import ru.springboot.pp312.service.UserService;
 
+import java.util.List;
+
 
 @Controller
 @RequestMapping("/users")
@@ -18,9 +20,10 @@ public class UsersController {
     }
 
 
-    @GetMapping()
+    @GetMapping
     public String index(Model model) {
-        model.addAttribute("users", userService.getAllUsers());
+        List<User> users =  userService.getAllUsers();
+        model.addAttribute("users", users);
         return "index";
     }
 

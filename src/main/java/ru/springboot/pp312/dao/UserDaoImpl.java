@@ -1,22 +1,25 @@
 package ru.springboot.pp312.dao;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ru.springboot.pp312.entity.User;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
 public class UserDaoImpl implements UserDao {
-
-    @PersistenceContext
     private EntityManager entityManager;
+
+    @Autowired
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
 
     @Override
     public List<User> getAllUsers() {
-
-        return entityManager.createQuery("select u from User u", User.class).getResultList();
+        return entityManager.createNativeQuery("select * from users").getResultList();
     }
 
     @Override

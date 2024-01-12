@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+
+  # Environment
+  my_db:
+    image: postgres
+    hostname: proj
+    ports:
+      - 5431:5430
+    environment:
+      POSTGRES_DB: my_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
